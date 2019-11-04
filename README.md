@@ -11,7 +11,7 @@ This package is built on top of `rustler`. See it's docs for more information ab
 ```elixir
 def deps do
   [
-    {:crc32c, "~> 0.1.0"}
+    {:crc32c, "~> 1.0.0"}
   ]
 end
 ```
