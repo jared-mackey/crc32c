@@ -29,25 +29,53 @@ end
 A comparison with the `crc32cer` package.
 
 ```
-##### With input of 16 bytes #####
-Name                  ips        average  deviation         median         99th %
-crc32cer           5.07 M      197.31 ns  ±5063.12%           0 ns         990 ns
-crc32c_rust        3.52 M      283.70 ns  ±3250.68%           0 ns         990 ns
+Operating System: macOS
+CPU Information: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+Number of Available Cores: 12
+Available memory: 16 GB
+Elixir 1.9.1
+Erlang 22.0.7
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: 10000 bytes, 100000 bytes, 1000000 bytes
+Estimated total run time: 42 s
+
+Benchmarking crc32c with input 10000 bytes...
+Benchmarking crc32c with input 100000 bytes...
+Benchmarking crc32c with input 1000000 bytes...
+Benchmarking crc32cer with input 10000 bytes...
+Benchmarking crc32cer with input 100000 bytes...
+Benchmarking crc32cer with input 1000000 bytes...
+
+##### With input 10000 bytes #####
+Name               ips        average  deviation         median         99th %
+crc32c        414.82 K        2.41 μs   ±325.94%        1.99 μs        4.99 μs
+crc32cer      197.03 K        5.08 μs   ±155.31%        4.99 μs        5.99 μs
 
 Comparison:
-crc32cer           5.07 M
-crc32c_rust        3.52 M - 1.44x slower +86.39 ns
-```
+crc32c        414.82 K
+crc32cer      197.03 K - 2.11x slower +2.66 μs
 
-```
-##### With input 1048576 bytes #####
-Name                  ips        average  deviation         median         99th %
-crc32c_rust        4.89 K      204.40 μs    ±16.20%      192.99 μs      323.99 μs
-crc32cer           1.93 K      519.43 μs     ±6.66%      508.99 μs      666.99 μs
+##### With input 100000 bytes #####
+Name               ips        average  deviation         median         99th %
+crc32c         54.63 K       18.30 μs    ±25.35%       16.99 μs       32.99 μs
+crc32cer       20.39 K       49.05 μs     ±9.18%       48.99 μs       55.99 μs
 
 Comparison:
-crc32c_rust        4.89 K
-crc32cer           1.93 K - 2.54x slower +315.02 μs
-```
+crc32c         54.63 K
+crc32cer       20.39 K - 2.68x slower +30.75 μs
 
+##### With input 1000000 bytes #####
+Name               ips        average  deviation         median         99th %
+crc32c          5.80 K      172.50 μs     ±4.78%      167.99 μs      203.99 μs
+crc32cer        2.02 K      495.62 μs     ±6.44%      485.99 μs      644.99 μs
+
+Comparison:
+crc32c          5.80 K
+crc32cer        2.02 K - 2.87x slower +323.12 μs
+```
 
