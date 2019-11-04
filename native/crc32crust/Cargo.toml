@@ -1,0 +1,15 @@
+[package]
+name = "crc32crust"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "crc32crust"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+rustler = "0.21.0"
+lazy_static = "1.0"
+crc32c = "0.4.0"
