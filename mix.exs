@@ -9,8 +9,7 @@ defmodule Crc32c.MixProject do
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      compilers: [:rustler] ++ Mix.compilers(),
-      rustler_crates: rustler_crates(),
+      compilers: Mix.compilers(),
       description: description(),
       package: package()
     ]
@@ -24,7 +23,7 @@ defmodule Crc32c.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.21.0"}
+      {:rustler, "~> 0.22"}
     ]
   end
 
@@ -38,19 +37,6 @@ defmodule Crc32c.MixProject do
       files: ~w(lib .formatter.exs mix.exs README* LICENSE* native),
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mackeyja92/crc32c/"}
-    ]
-  end
-
-  defp rustler_crates() do
-    mode =
-      case Mix.env() do
-        :prod -> :release
-        :bench -> :release
-        _ -> :debug
-      end
-
-    [
-      crc32crust: [path: "native/crc32crust", mode: mode]
     ]
   end
 end

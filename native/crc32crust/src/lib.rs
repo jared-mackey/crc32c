@@ -1,20 +1,12 @@
 extern crate crc32c;
 
-use rustler::{Encoder, Env, Error, Term, Binary};
+use rustler::{NifResult, Binary};
 
-rustler::rustler_export_nifs! {
-    "Elixir.Crc32c",
-    [
-        ("calc", 1, calc)
-    ],
-    None
+rustler::init!("Elixir.Crc32c", [calc]);
 
+#[rustler::nif]
+fn calc<'a>(payload: Binary<'a>) -> NifResult<u32> {
+    let res = crc32c::crc32c(payload.as_slice());
+
+    Ok(res)
 }
-
-fn calc<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
-    let payload = Binary::from_term(args[0])?;
-    let crc = crc32c::crc32c(payload.as_slice());
-
-    Ok(crc.encode(env))
-}
-
