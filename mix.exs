@@ -23,7 +23,7 @@ defmodule Crc32c.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.22"},
+      {:rustler, "~> 0.26"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
