@@ -35,7 +35,16 @@ defmodule Crc32c.MixProject do
   defp package() do
     [
       name: "crc32c",
-      files: ~w(lib .formatter.exs mix.exs README* LICENSE* native),
+      files: [
+        "mix.exs",
+        "native/crc32crust/.cargo/config",
+        "native/crc32crust/src",
+        "native/crc32crust/Cargo.toml",
+        "native/crc32crust/Cargo.lock",
+        "lib",
+        "LICENSE",
+        "README.md"
+      ],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mackeyja92/crc32c/"}
     ]
