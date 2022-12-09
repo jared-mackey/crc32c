@@ -11,7 +11,7 @@ This package is built on top of `rustler`. See it's docs for more information ab
 ```elixir
 def deps do
   [
-    {:crc32c, "~> 1.0.0"}
+    {:crc32c, "~> 1"}
   ]
 end
 ```
@@ -78,4 +78,3 @@ Comparison:
 crc32c          5.80 K
 crc32cer        2.02 K - 2.87x slower +323.12 μs
 ```
-
