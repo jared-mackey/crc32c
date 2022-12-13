@@ -1,8 +1,8 @@
 extern crate crc32c;
 
-use rustler::{NifResult, Binary};
+use rustler::{Binary, NifResult};
 
-rustler::init!("Elixir.Crc32c", [calc]);
+rustler::init!("Elixir.Crc32c.Impl", [calc]);
 
 #[rustler::nif]
 fn calc<'a>(payload: Binary<'a>) -> NifResult<u32> {
