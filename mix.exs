@@ -5,7 +5,7 @@ defmodule Crc32c.MixProject do
     [
       name: "CRC32c",
       app: :crc32c,
-      version: "1.1.0",
+      version: "1.2.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
